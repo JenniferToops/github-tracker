@@ -1,0 +1,367 @@
+/************************ FONTS ************************/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+
+/************************ BODY ************************/
+body {
+    width: 100%;
+    margin: auto;
+    background-color: rgb(240, 244, 252);
+    font-family: 'Roboto Mono', monospace;
+}
+
+/************************ NAVBAR ************************/
+#navbar {
+    height: 80px;
+    width: 100%;
+    margin: 0;
+    background-image: radial-gradient(blue, #010158);
+    overflow: hidden;
+}
+
+#navbar  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    /* padding-left: 1rem; */
+    list-style-type: none;
+    font-size: 1.5rem;  
+}
+
+#navbar ul>li>a {
+    padding-right: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+.sticky + .content {
+    padding-top: 60px;
+  }
+
+
+/* unvisited link */
+#navbar ul>li>a:link {
+    color: white;
+  }
+  
+  /* visited link */
+#navbar ul>li>a:visited {
+    color: rgb(153, 183, 243);
+  }
+  
+  /* mouse over link */
+#navbar ul>li>a:hover {
+    background-color: cornflowerblue;
+  }
+  
+  /* selected link */
+#navbar ul>li>a:active {
+    color: white;
+  }
+
+/************************ MAIN SECTION ************************/ 
+  .main {
+      margin-bottom: 20px;
+  }  
+
+  .welcome {
+    margin: 100px auto auto 2%;
+    font-size: 1.25rem;
+}
+
+  .top {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+    /*----------- FORM --------------*/
+  .form {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      width: 30%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1rem;
+  }
+
+  .form-item {
+    margin-top: 15px;
+  }
+
+  .form-item input  {
+      width: 100%;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border: 2px solid #010158;
+  }
+
+  label::after {
+    content:"\A";
+    white-space: pre;
+}
+
+  input[placeholder] {
+      text-align: center;
+      font-family: 'Roboto Mono', monospace;
+  }
+
+
+  #submit {
+        width: 40%;
+        background-image: radial-gradient(blue, #010158);
+        color: white;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: bold;
+  }
+
+    /*----------- USER FEED --------------*/  
+  .userFeed {
+  margin: 10px 10%;
+}
+
+  .userFeed ul li:nth-of-type(odd) {
+    background-color:#ffffff;
+    line-height: 2.25rem;
+}
+
+
+  .userFeed li {
+        list-style-type: none;
+        margin: 10px 5%;
+}
+  
+
+  .fas {
+      padding-right: 2rem;
+  }
+
+    /*----------- FOOTER --------------*/
+
+#footer {
+    height: 50px;
+    width: 100%;
+    margin: 50px auto auto auto;
+    background-image: radial-gradient(blue, #010158);
+    overflow: hidden;
+    color: white;
+}
+
+#footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    /* padding-left: 1rem; */
+    list-style-type: none;
+    font-size: 1rem;
+    color: white;
+}
+
+#footer ul>li a {
+    padding-right: 1rem;
+    color: white;
+}
+
+
+/************************ MEDIA QUERY WIDTH <= 1400PX ************************/
+
+  @media only screen and (max-width: 1400px) {
+
+    #navbar  ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-content: center;
+        /* padding-left: 1rem; */
+        list-style-type: none;
+        font-size: 1.1rem;
+    }
+
+
+    .form {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        text-align: center;
+        font-weight: bold;
+    }
+    .form-item input  {
+        width: 90%;
+        padding-top: 1rem;
+        padding-bottom: 1rem
+    }
+
+    #submit {
+        width: 20%;
+        background-image: radial-gradient(blue, #010158);
+        color: white;
+        font-weight: bold;
+    }
+
+  }
+
+  /************************ MEDIA QUERY WIDTH <= 1200PX ************************/
+
+  @media only screen and (max-width: 1200px) {
+
+    #navbar  ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-content: center;
+        /* padding-left: 1rem; */
+        list-style-type: none;
+        font-size: 1.1rem;
+    }
+
+
+    .form {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        text-align: center;
+        font-weight: bold;
+    }
+
+
+    .form-item input  {
+        width: 80%;
+        padding-top: 1rem;
+        padding-bottom: 1rem
+    }
+
+    #submit {
+        width: 20%;
+        background-image: radial-gradient(blue, #010158);
+        color: white;
+        font-weight: bold;
+    }
+
+  }
+
+/************************ MEDIA QUERY WIDTH <= 1000PX ************************/
+
+  @media only screen and (max-width: 1000px) {
+
+    #navbar  ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-content: center;
+        /* padding-left: 1rem; */
+        list-style-type: none;
+        font-size: 1.1rem;
+    }
+
+
+    .form {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        text-align: center;
+        font-weight: bold;
+    }
+    .form-item input  {
+        width: 90%;
+        padding-top: 1rem;
+        padding-bottom: 1rem
+    }
+
+    #submit {
+        width: 30%;
+        background-image: radial-gradient(blue, #010158);
+        color: white;
+        font-weight: bold;
+    }
+
+  }
+
+/************************ MEDIA QUERY WIDTH <= 800PX ************************/
+
+  @media only screen and (max-width: 800px) {
+
+    #navbar  ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-content: center;
+        /* padding-left: 1rem; */
+        list-style-type: none;
+        font-size: 1.1rem;
+    }
+
+
+    .form {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        text-align: center;
+        font-weight: bold;
+    }
+    .form-item input  {
+        width: 90%;
+        padding-top: 1rem;
+        padding-bottom: 1rem
+    }
+
+    #submit {
+        width: 40%;
+        background-image: radial-gradient(blue, #010158);
+        color: white;
+        font-weight: bold;
+    }
+
+  }
+
+/************************ MEDIA QUERY WIDTH <= 600PX ************************/
+
+  @media only screen and (max-width: 600px) {
+
+    #navbar  ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-content: center;
+        /* padding-left: 1rem; */
+        list-style-type: none;
+        font-size: 1.1rem;
+    }
+
+
+    .form {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        text-align: center;
+        font-weight: bold;
+    }
+    .form-item input  {
+        width: 95%;
+        padding-top: 1rem;
+        padding-bottom: 1rem
+    }
+
+    #submit {
+        width: 50%;
+        background-image: radial-gradient(blue, #010158);
+        color: white;
+        font-weight: bold;
+    }
+
+  }

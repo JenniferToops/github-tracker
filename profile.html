@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>GitHub Accountability Tracker</title>
+  <meta name="description" content="100devs team Github Accountability Tracker App">
+  <meta name="author" content="100devs team Github Accountability Tracker App">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<!----------BODY --------->
+<body>
+    <!-- NAVBAR -->
+  <nav id="navbar"> 
+    <ul>
+    <li><a href="/profile">Profile</a></li>
+    <li><a href="/login">LogIn</a></li>
+    <li><a href="#">LogOut</a></li>
+    <li><a href="/signup">SignUp</a></li>
+    </ul>
+  </nav>
+
+  <section class="main">
+  <!-- HEADER SECTION -->
+<h2 class="welcome"> Welcome, user.githubUsername or Guest</h2>
+    <section class="top">
+     <!-- if user is logged out, display only LogIn, if User logged in display profile and log out -->
+
+      <!-- need function to determine wether user is logged in to display proper greeting-->
+      <h1>Post Your Push</h1>
+    </section>
+
+
+   <section class="form">
+        <form action="/profile" method='POST'>
+            <div class="form-item">
+                <label for="repo-link">GitHub Repo Link</label>
+                <input type="text" id="repo-link" placeholder="e.g., https://github/janedoe" name='repo-link' minlength="28">
+            </div>
+            <div class="form-item">
+                <label for="push-description">What did you push?</label>
+                <input type="text" id="push-description" placeholder="Push description" name='repository' minlength="5" maxlength="60">
+            <div class="form-item">
+                <input id ="submit" type="submit" name="submitRepo">
+            </div>
+        </form>
+    </section>
+    <section class="userFeed">
+        <ul>
+            <!-- remove thumbs up on this page, only used as an example for code, apply on index page -->
+            <li><span><i class="fas fa-thumbs-up"></i><i class="fas fa-trash"></i></span>Pushed a level 8 codewar kata</li>
+            <li><span><i class="fas fa-thumbs-up"></i><i class="fas fa-trash"></i></span>Pushed a level 8 codewar kata</li>
+            <li><span><i class="fas fa-thumbs-up"></i><i class="fas fa-trash"></i></span>Pushed a level 8 codewar kata</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+            <li>hey</li>
+        </ul>
+
+
+</section>
+</section>
+<!---------- FOOTER ------------->
+<footer id="footer">
+        <ul>
+            <li>Copyright <i class="far fa-copyright"></i>2021 by <span><a href="https://leonnoel.com/100devs/" target="_blank">100Devs, Inc.</a></span> All rights reserved.</li>
+        </ul>
+</footer>
+<script src="main.js"></script>
+  <!--<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></script> -->
+</body>
+</html>
