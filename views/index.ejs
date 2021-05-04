@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>GitHub Accountability Tracker</title>
+    <meta
+      name="description"
+      content="100devs team Github Accountability Tracker App"
+    />
+    <meta
+      name="author"
+      content="100devs team Github Accountability Tracker App"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    
+
+    <section class="main">
+    <!-- ///////USER IS LOGGED IN -->
+
+      <% if(user) {%>
+        <nav id="navbar">
+          <ul>
+            
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">LogOut</a></li>
+           
+            
+          </ul>
+        </nav>
+        <h2 class="welcome"><%= user.githubUsername %></h2>
+
+        <section class="top">
+          <h1>GitHub Accountability Tracker</h1>
+        </section>
+        
+        <section class="userFeed">
+          <ul>          
+          <% if(posts) { %>         
+              <% posts.forEach(el=> { %>
+                  
+                          <li data-id='<%=el._id%>'  data-user ="<%=el.userId%>" class="trackers">
+                        <%if (user.githubUsername==el.userName) { %>
+
+                        <%} %>
+                          <section>
+                            <span> Author: <%=el.userName%> </span>
+                            <hr>
+                            <span> Repo Link: <%= el.repoLink %> </span>
+                            <hr>
+                            <span> "<%= el.description %>" </span>
+                          </section>
+                          </li>
+                  
+
+              <% }); %>
+
+            
+            
+          <% } %>
+
+          
+      </ul>
+    </section>
+        
+     <% } %>
+
+    <!-- ///////USER IS LOGGED OUT-->
+     <% if (!user){ %>
+        <nav id="navbar">
+          <ul>
+            <li><a href="/login">LogIn</a></li>
+            <li><a href="/signup">SignUp</a></li>
+            
+           
+          </ul>
+        </nav>
+        <h2 class="welcome">Welcome, Guest
+        </h2>
+
+        
+        <section class="top">
+          <h1>GitHub Accountability Tracker</h1>
+        </section>
+        
+        
+        <section class="userFeed">
+          <ul>
+           
+            <% if(posts) { %>
+        
+              <% posts.forEach(el=> { %>
+               
+                <li data-id='<%=el._id%>' class="trackers">
+
+                    
+                  <section>
+                    <span> Author: "<%=el.userName%>" </span>
+                    <hr>
+                    <span> Repo Link: <%= el.repoLink %> </span>
+                    <hr>
+                    <span> "<%= el.description %>" </span>
+                  </section>
+                </li>
+                
+                <% }); %>
+                  <% } %>
+          </ul>
+        </section>
+      <% } %>
+
+      
+    </section>
+
+
+
+
+    <!---------- FOOTER ------------->
+    <footer id="footer">
+      <ul>
+        <li>
+          Copyright <i class="far fa-copyright"></i>2021 by
+          <span
+            ><a href="https://spongy.com/100devs/" target="_blank"
+              >Spongy,Inc.</a
+            ></span
+          >
+          All rights reserved.
+        </li>
+      </ul>
+    </footer>
+    <script src='js/main.js'></script>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
+
+

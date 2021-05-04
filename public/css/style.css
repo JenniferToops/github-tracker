@@ -12,9 +12,9 @@ body {
 
 /************************ NAVBAR ************************/
 #navbar {
-    height: 80px;
+    height: 100px;
     width: 100%;
-    margin: 0;
+    margin: 0 auto;
     background-image: radial-gradient(blue, #010158);
     overflow: hidden;
 }
@@ -33,6 +33,16 @@ body {
     padding-right: 1rem;
     color: white;
     text-decoration: none;
+    align-self: center; 
+    text-transform: uppercase;
+}
+
+img.logo {
+  width: 60px;
+  height: 60px;
+  padding-right: 2rem;
+  padding-bottom: 5px;
+  /* flex-grow: 1; */
 }
 
 .sticky {
@@ -42,7 +52,7 @@ body {
   }
 
 .sticky + .content {
-    padding-top: 60px;
+    /* padding-top: 60px; */
   }
 
 
@@ -53,7 +63,7 @@ body {
   
   /* visited link */
 #navbar ul>li>a:visited {
-    color: rgb(153, 183, 243);
+    color: rgb(160, 230, 236);
   }
   
   /* mouse over link */
@@ -68,11 +78,12 @@ body {
 
 /************************ MAIN SECTION ************************/ 
   .main {
+      min-height: 600px;
       margin-bottom: 20px;
   }  
 
   .welcome {
-    margin: 100px auto auto 2%;
+    margin: 150px auto auto 4%;
     font-size: 1.25rem;
 }
 
@@ -81,6 +92,14 @@ body {
     width: 100%;
     text-align: center;
     font-size: 2rem;
+  }
+
+  h1 {
+    text-shadow: 1px 1px blue;
+  }
+
+  h2 {
+    text-align: center;
   }
 
     /*----------- FORM --------------*/
@@ -127,20 +146,44 @@ body {
 
     /*----------- USER FEED --------------*/  
   .userFeed {
-  margin: 10px 10%;
+  /* margin: 10px 5%; */
+  max-width: 100%;
+  min-width: 80%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+  .userFeed ul {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 
   .userFeed ul li:nth-of-type(odd) {
     background-color:#ffffff;
-    line-height: 2.25rem;
+    /* line-height: 2.25rem; */
 }
-
 
   .userFeed li {
         list-style-type: none;
         margin: 10px 5%;
+        padding: 20px 20px;
 }
-  
+
+  .userFeed li span:nth-of-type(2) {     
+    overflow-wrap: break-word; 
+}  
+
+  .userFeed li span:nth-of-type(3) {     
+    overflow-wrap: break-word; 
+}  
+
+.postContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
 
   .fas {
       padding-right: 2rem;
@@ -328,6 +371,7 @@ body {
 
   }
 
+
 /************************ MEDIA QUERY WIDTH <= 600PX ************************/
 
   @media only screen and (max-width: 600px) {
@@ -364,4 +408,8 @@ body {
         font-weight: bold;
     }
 
+  }
+
+  .alert{
+    text-align: center;
   }
