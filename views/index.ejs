@@ -58,7 +58,7 @@
                             <hr>
                             <span> "<%= el.description %>" </span>
                             <hr>
-                            <span> <%= el.createdAt %> </span>
+                            <span> <%= "Created: " + el.createdAt.toLocaleDateString('en-US') + " at " + el.createdAt.toLocaleTimeString('en-US') %> </span>
                           </section>
                           </li>
                   
