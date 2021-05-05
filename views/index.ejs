@@ -57,6 +57,8 @@
                             <span> Repo Link: <%= el.repoLink %> </span>
                             <hr>
                             <span> "<%= el.description %>" </span>
+                            <hr>
+                            <span> <%= el.createdAt %> </span>
                           </section>
                           </li>
                   
@@ -77,6 +79,7 @@
      <% if (!user){ %>
         <nav id="navbar">
           <ul>
+                        <li><img class="logo" src="images/GaT.png"></li>
             <li><a href="/login">LogIn</a></li>
             <li><a href="/signup">SignUp</a></li>
             
