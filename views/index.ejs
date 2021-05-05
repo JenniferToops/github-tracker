@@ -111,6 +111,8 @@
                     <span> Repo Link: <%= el.repoLink %> </span>
                     <hr>
                     <span> "<%= el.description %>" </span>
+                    <hr>
+                    <span> <%= "Created: " + el.createdAt.toLocaleDateString('en-US') + " at " + el.createdAt.toLocaleTimeString('en-US') %> </span>
                   </section>
                 </li>
                 
