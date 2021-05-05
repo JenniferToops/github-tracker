@@ -24,6 +24,7 @@ body {
     flex-direction: row;
     justify-content: flex-start;
     align-content: center;
+    line-height: 4rem;
     /* padding-left: 1rem; */
     list-style-type: none;
     font-size: 1.5rem;  
@@ -157,7 +158,7 @@ img.logo {
   .userFeed ul {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 60%;
 }
 
   .userFeed ul li:nth-of-type(odd) {
@@ -406,6 +407,21 @@ img.logo {
         background-image: radial-gradient(blue, #010158);
         color: white;
         font-weight: bold;
+    }
+
+    .userFeed {
+      /* margin: 10px 5%; */
+      max-width: 100%;
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+
+    .userFeed ul {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
     }
 
   }

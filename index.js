@@ -12,7 +12,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
 
-// require("dotenv").config({ path: "./config/.env" });
+require("dotenv").config({ path: "./config/.env" });
 require("./config/passport")(passport);
 
 connectDB();
