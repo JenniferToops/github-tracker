@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="images/favicon.ico" />
+
     <title>GitHub Accountability Tracker</title>
     <meta
       name="description"
@@ -19,6 +19,8 @@
       integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
       crossorigin="anonymous"
     />
+
+    <link rel="icon" type="image/jpg" href="images/logo-gat.jpg">
   </head>
 
   <body>
@@ -26,17 +28,18 @@
 
     <section class="main">
     <!-- ///////USER IS LOGGED IN -->
-    <% if(user) {%>
 
+      <% if(user) {%>
         <nav id="navbar">
           <ul>
-            <li><img class="logo" src="images/GaT.png"></li>
+            <li><img class="logo" src="images/logo-gat.jpg"></li>
             <li><a href="/profile">Profile</a></li>
             <li><a href="/logout">LogOut</a></li>
+           
+            
           </ul>
         </nav>
-
-        <h2 class="welcome"><%= user.githubUsername %></h2>
+        <h2 class="welcome">Welcome, <%= user.githubUsername %></h2>
 
         <section class="top">
           <h1>GitHub Accountability Tracker</h1>
@@ -48,18 +51,32 @@
               <% posts.forEach(el=> { %>
                   
                           <li data-id='<%=el._id%>'  data-user ="<%=el.userId%>" class="trackers">
-                        <%if (user.githubUsername==el.userName) { %>
-
-                        <%} %>
+                       
                           <section>
                             <span> Author: <%=el.userName%> </span>
                             <hr>
-                            <span> Repo Link: <%= el.repoLink %> </span>
+                            <span> Repo Link: <a id="repoLink" href = "<%= el.repoLink %>"> <%= el.repoLink %> </a>  </span>
                             <hr>
                             <span> Description: "<%= el.description %>" </span>
                             <hr>
-                            <span> Created: <%= el.createdAt %> </span>
+                            <span> <%= "Created: " + el.createdAt.toLocaleDateString('en-US') %> </span>
                           </section>
+                         
+                           <%if (user.githubUsername==el.userName) { %>
+                            <hr>
+                            <span><i class="fas fa-trash del"></i></span>
+                            <%} %>
+                            <hr>
+                              <form
+          class="col-1"
+          action="/posts/likePost/<%= el.id %>?_method=PUT"
+          method="POST"
+        >
+          <button class="fa fa-heart" type="submit"></button>
+        </form>
+        <h3 class="col-3">Likes: <%= el.likes  %></h3>
+                          
+
                           </li>
                   
 
@@ -79,7 +96,7 @@
      <% if (!user){ %>
         <nav id="navbar">
           <ul>
-                        <li><img class="logo" src="images/GaT.png"></li>
+            <li><img class="logo" src="images/logo-gat.jpg"></li>
             <li><a href="/login">LogIn</a></li>
             <li><a href="/signup">SignUp</a></li>
             
@@ -108,11 +125,11 @@
                   <section>
                     <span> Author: "<%=el.userName%>" </span>
                     <hr>
-                    <span> Repo Link: <%= el.repoLink %> </span>
+                    <span> Repo Link: <a id="repoLink" href = "<%= el.repoLink %>"> <%= el.repoLink %> </a> </span>
                     <hr>
                     <span> Description: "<%= el.description %>" </span>
                     <hr>
-                    <span> Created: <%= el.createdAt %> </span>
+                    <span> <%= "Created: " + el.createdAt.toLocaleDateString('en-US') %> </span>
                   </section>
                 </li>
                 
@@ -134,12 +151,13 @@
         <li>
           Copyright <i class="far fa-copyright"></i>2021 by
           <span
-            ><a href="https://spongy.com/100devs/" target="_blank"
+            ><a href="https://spongy.wfarid.repl.co/" target="_blank"
               >Spongy,Inc.</a
             ></span
           >
           All rights reserved.
         </li>
+        <li id="li-contributors"></li>
       </ul>
     </footer>
     <script src='js/main.js'></script>

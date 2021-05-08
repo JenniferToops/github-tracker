@@ -14,6 +14,7 @@ module.exports = {
   },
   createPost: async (req, res) => {
     console.log(req.user);
+    console.log(req.body)
     try {
       await Post.create({
         repoLink: req.body.repoLink,
@@ -28,10 +29,25 @@ module.exports = {
     }
   },
 
+  likePost: async (req, res) => {
+    try {
+      await Post.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          $inc: { likes: 1 },
+        }
+      );
+      console.log("Likes +1");
+      res.redirect('/');
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
   deletePost: async (req, res) => {
     console.log(req.body.postIdFromJSFile);
     try {
-      await Post.findOneAndDelete({ _id: req.body.postIdFromJSFile });
+      await Post.findOneAndDelete({ userId: req.user.id,  _id: req.body.postIdFromJSFile });
       console.log("Deleted Post");
       res.json("Deleted It");
       res.redirect('/profile')

@@ -20,6 +20,11 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
+  likes: {
+    type: Number,
+    required: false,
+  },
   
   createdAt: {
     type: Date,

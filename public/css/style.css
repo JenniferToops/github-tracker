@@ -3,8 +3,13 @@
 
 
 /************************ BODY ************************/
+html {
+  height: 100%;
+}
+
 body {
     width: 100%;
+    height: 100%;
     margin: auto;
     background-color: rgb(240, 244, 252);
     font-family: 'Roboto Mono', monospace;
@@ -17,6 +22,7 @@ body {
     margin: 0 auto;
     background-image: radial-gradient(blue, #010158);
     overflow: hidden;
+    box-shadow: 0 0 8px  black ;
 }
 
 #navbar  ul {
@@ -24,18 +30,26 @@ body {
     flex-direction: row;
     justify-content: flex-start;
     align-content: center;
-    line-height: 4rem;
     /* padding-left: 1rem; */
     list-style-type: none;
     font-size: 1.5rem;  
 }
 
+#navbar ul>li{
+   padding-right: 1rem;
+}
+
+
 #navbar ul>li>a {
-    padding-right: 1rem;
     color: white;
     text-decoration: none;
     align-self: center; 
     text-transform: uppercase;
+    line-height: 3.5rem;
+    padding: .6rem;
+    border: 1px solid rgba(159, 250, 245, 0.3);
+    border-radius: 3px;
+    box-shadow: 0 0 2px blue, inset 0 0 5px blue;
 }
 
 img.logo {
@@ -69,7 +83,7 @@ img.logo {
   
   /* mouse over link */
 #navbar ul>li>a:hover {
-    background-color: cornflowerblue;
+    background-color: rgb(100, 149, 237, .5);
   }
   
   /* selected link */
@@ -79,7 +93,7 @@ img.logo {
 
 /************************ MAIN SECTION ************************/ 
   .main {
-      min-height: 600px;
+      min-height: 100%;
       margin-bottom: 20px;
   }  
 
@@ -121,9 +135,13 @@ img.logo {
 
   .form-item input  {
       width: 100%;
+      margin-top: 5px;
       padding-top: 1rem;
       padding-bottom: 1rem;
-      border: 2px solid #010158;
+      /* border: 2px solid #010158; */
+       border: 2px solid rgba(159, 250, 245, 0.3);
+    border-radius: 4px;
+    box-shadow: 0 0 4px blue, inset 0 0 7px blue;
   }
 
   label::after {
@@ -144,7 +162,15 @@ img.logo {
         font-family: 'Roboto Mono', monospace;
         font-weight: bold;
   }
+  
+  #submit:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 4px blue;
+  }
 
+  #submit:active{
+    box-shadow: inset 0px 0px 10px black;
+  }
     /*----------- USER FEED --------------*/  
   .userFeed {
   /* margin: 10px 5%; */
@@ -158,7 +184,7 @@ img.logo {
   .userFeed ul {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 50%;
 }
 
   .userFeed ul li:nth-of-type(odd) {
@@ -186,8 +212,40 @@ img.logo {
   flex-direction: row;
 }
 
+  .fa {
+    padding: .5rem .5rem;
+    color: rgb(163, 0, 41);
+    border: 1px solid rgb(163, 0, 41);
+    border-radius: 50px;
+    box-shadow: 0 0 2px pink, inset 0 0 5px pink;
+  }
+
+  .fa:hover{
+    cursor: pointer;
+    color: rgb(248, 2, 2);
+    
+  }
+
+  .fa:active{
+    color: rgb(182, 0, 45);
+    text-shadow: 0px 0px 3px pink;
+  }
+
   .fas {
-      padding-right: 2rem;
+    padding-left: .5rem;
+    /* color: rgb(163, 0, 41); */
+    color: rgb(0, 0, 200);  
+  }
+
+  .fas:hover{
+    cursor: pointer;
+    color: rgb(0, 0, 255);
+    
+  }
+
+  .fas:active{
+   color: rgb(0, 0, 200);
+    text-shadow: 0px 0px 3px black;
   }
 
     /*----------- FOOTER --------------*/
@@ -407,21 +465,6 @@ img.logo {
         background-image: radial-gradient(blue, #010158);
         color: white;
         font-weight: bold;
-    }
-
-    .userFeed {
-      /* margin: 10px 5%; */
-      max-width: 100%;
-      min-width: 100%;
-      display: flex;
-      justify-content: center;
-      align-content: center;
-    }
-
-    .userFeed ul {
-      display: flex;
-      flex-direction: column;
-      width: 90%;
     }
 
   }

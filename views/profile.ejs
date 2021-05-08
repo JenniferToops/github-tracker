@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel="shortcut icon" href="images/favicon.ico" />
+
   <title>GitHub Accountability Tracker</title>
   <meta name="description" content="100devs team Github Accountability Tracker App">
   <meta name="author" content="100devs team Github Accountability Tracker App">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="icon" type="image/jpg" href="images/logo-gat.jpg">
 </head>
 <!----------BODY --------->
 <body>
@@ -15,7 +16,7 @@
     <!-- NAVBAR -->
   <nav id="navbar"> 
     <ul>
-      <li><img class="logo" src="images/GaT.png"></li>
+      <li><img class="logo" src="images/logo-gat.jpg"></li>
       <li><a href="/">Home</a></li>
       <li><a href="logout">LogOut</a></li>
     </ul>
@@ -33,7 +34,7 @@
 
 
    <section class="form">
-        <form action="/profile/createPost" method='POST'>
+        <form action="/posts/createPost" method='POST'>
             <div class="form-item">
                 <label for="repo-link">GitHub Repo Link</label>
                 <input type="text" id="repo-link" placeholder="e.g., https://github/janedoe/repolink" name='repoLink' minlength="20" required>
@@ -42,7 +43,7 @@
                 <label for="push-description">What did you push?</label>
                 <input type="text" id="push-description" placeholder="Push description" name='description' minlength="5" maxlength="60" required>
             <div class="form-item">
-                <input id ="submit" type="submit" name="submitRepo">
+                <input id ="submit" type="submit">
             </div>
         </form>
     </section>
@@ -58,12 +59,12 @@
                   <section>
                     <span> Author: <%= user.githubUsername %></span>
                     <hr>
-                    <span> Repo Link: <%= el.repoLink %> </span>
+                    <span> Repo Link: <a id="repoLink" href = "<%= el.repoLink %>"> <%= el.repoLink %> </a> </span>
                     <hr>
                     <span> Description: <%= el.description %> </span>
-                    </section>
                     <hr>
-                    <span> Created: <%= el.createdAt %> </span>
+                    <span><%= "Created: " + el.createdAt.toLocaleDateString('en-US') %> </span>
+                    </section>
                     <hr>
                     <span><i class="fas fa-trash del"></i>
                     </span>                 
@@ -89,7 +90,7 @@
 <!---------- FOOTER ------------->
       <footer id="footer">
         <ul>
-            <li>Copyright <i class="far fa-copyright"></i>2021 by <span><a href="https://spongy" target="_blank">Spongy Inc.</a></span> All rights reserved.</li>
+            <li>Copyright <i class="far fa-copyright"></i>2021 by <span><a href="https://spongy.wfarid.repl.co/" target="_blank">Spongy Inc.</a></span> All rights reserved.</li>
         </ul>
       </footer>
 <script src="js/script.js"></script>

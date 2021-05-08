@@ -30,7 +30,23 @@ async function deletePost(){
     }
 }
 
-// target the edit button and add an event listener to each
+/**
+ * Shuffles array in place.
+ * @param {Array} a items An array containing the items.
+ */
+function shuffle (arr) {
+    var j, x, index;
+    for (index = arr.length - 1; index > 0; index--) {
+        j = Math.floor(Math.random() * (index + 1));
+        x = arr[index];
+        arr[index] = arr[j];
+        arr[j] = x;
+    }
+    return arr;
+}
 
-// create a function that links to PUT request - updating the description
+const contributors = ['a','b','c']
+const shuffledContributors = shuffle(contributors)
+console.log(shuffledContributors);
 
+document.getElementById('li-contributors').app
