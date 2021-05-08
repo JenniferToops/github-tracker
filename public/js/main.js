@@ -30,10 +30,6 @@ async function deletePost(){
     }
 }
 
-/**
- * Shuffles array in place.
- * @param {Array} a items An array containing the items.
- */
 function shuffle (arr) {
     var j, x, index;
     for (index = arr.length - 1; index > 0; index--) {
@@ -45,8 +41,14 @@ function shuffle (arr) {
     return arr;
 }
 
-const contributors = ['a','b','c']
+const contributors = ['MagicMarcos','jennifertoops','nicoolel', 'rudy35hernandez', 'wfarid']
 const shuffledContributors = shuffle(contributors)
 console.log(shuffledContributors);
+let str="Contributors (Random Order): "
+for (const name of shuffledContributors){
+  str += `<a target="_blank" href=https://github.com/${name}>${name}</a>, `
+}
+str = str.substring(0, str.length - 2)
+console.log(str)
 
-document.getElementById('li-contributors').app
+document.getElementById('li-contributors').innerHTML = str

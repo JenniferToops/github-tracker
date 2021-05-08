@@ -1,110 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
+<head>
+  <meta charset="utf-8">
 
-    <title>GitHub Accountability Tracker</title>
-    <meta
-      name="description"
-      content="100devs team Github Accountability Tracker App"
-    />
-    <meta
-      name="author"
-      content="100devs team Github Accountability Tracker App"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
-    <link rel="icon" type="image/jpg" href="images/logo-gat.jpg">
-  </head>
+  <title>GitHub Accountability Tracker</title>
+  <meta name="description" content="100devs team Github Accountability Tracker App">
+  <meta name="author" content="100devs team Github Accountability Tracker App">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="icon" type="image/jpg" href="images/logo-gat.jpg">
+</head>
+<!----------BODY --------->
+<body>
+  <section class="main">
+    <!-- NAVBAR -->
+  <nav id="navbar"> 
+    <ul>
+      <li><img class="logo" src="images/logo-gat.jpg"></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="logout">LogOut</a></li>
+    </ul>
+  </nav>
 
-  <body>
-    <nav id="navbar">
-      <ul>
-        <li><img class="logo" src="images/logo-gat.jpg"></li>
-        <li><a href="/">Home</a></li>
-        <li><a href="logout">LogOut</a></li>
-      </ul>
-    </nav>
 
-    <section class="main">
-      <div class="welcome"></div>
-      <section class="top">
-        <h1>Sign Up For A New Account</h1>
-      </section>
+  <!-- HEADER SECTION -->
+<h2 class="welcome"> Welcome <%= user.githubUsername %></h2>
+    <section class="top">
+     <!-- if user is logged out, display only LogIn, if User logged in display profile and log out -->
 
-      <section>
-        <% if (locals && locals.messages && locals.messages.errors) { %> <% messages.errors.forEach( el => {
-        %>
-        <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %> <% } %>
-      </section>
-
-      <section class="form">
-        <form action="/signup" method="POST">
-          <div class="form-item">
-            <label for="githubUsername">Github Username</label>
-            <input
-              type="text"
-              id="githubUsername"
-              placeholder="Github Username"
-              name="githubUsername"
-            />
-          </div>
-          <div class="form-item">
-            <label for="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Email"
-              name="email"
-            />
-          </div>
-          <div class="form-item">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              minlength="8"
-            />
-          </div>
-          <div class="form-item">
-            <label for="confirmPassword">Confirm Password</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              placeholder="Confirm Password"
-              name="confirmPassword"
-              minlength="8"
-            />
-          </div>
-          <div class="form-item">
-            <input type="submit" id="submit" />
-          </div>
-        </form>
-      </section>
+      <!-- need function to determine wether user is logged in to display proper greeting-->
+      <h1>Post Your Push</h1>
     </section>
-    <!---------- FOOTER ------------->
-    <footer id="footer">
-      <ul>
-        <li>
-          Copyright <i class="far fa-copyright"></i>2021 by
-          <span
-            ><a href="https://spongy.wfarid.repl.co/" target="_blank"
-              >Spongy, Inc.</a
-            ></span
-          >
-          All rights reserved.
-        </li>
-      </ul>
-    </footer>
-    <script src="js/script.js"></script>
-    <script src="js/main.js"></script>
-    <!--<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></script> -->
-  </body>
+
+
+   <section class="form">
+        <form action="/posts/createPost" method='POST'>
+            <div class="form-item">
+                <label for="repo-link">GitHub Repo Link</label>
+                <input type="text" id="repo-link" placeholder="e.g., https://github/janedoe/repolink" name='repoLink' minlength="20" required>
+            </div>
+            <div class="form-item">
+                <label for="push-description">What did you push?</label>
+                <input type="text" id="push-description" placeholder="Push description" name='description' minlength="5" maxlength="60" required>
+            <div class="form-item">
+                <input id ="submit" type="submit">
+            </div>
+        </form>
+    </section>
+
+
+    <section class="userFeed">
+        <ul>
+          <% if(posts) { %>
+          <% posts.forEach(el => { %>
+          <!--desperate times call for desperate hr tags. I'm sorry :(-->
+              <li data-id='<%=el._id%>'> 
+               
+                  <section>
+                    <span> Author: <%= user.githubUsername %></span>
+                    <hr>
+                    <span> Repo Link: <a id="repoLink" href = "<%= el.repoLink %>"> <%= el.repoLink %> </a> </span>
+                    <hr>
+                    <span> Description: <%= el.description %> </span>
+                    <hr>
+                    <span><%= "Created: " + el.createdAt.toLocaleDateString('en-US') %> </span>
+                    </section>
+                    <hr>
+                    <span><i class="fas fa-trash del"></i>
+                    </span>                 
+              </li>
+            
+          <% }); %> 
+          <% } %>
+          </ul>
+<!--           <li><span><i class="fas fa-thumbs-up"></i><i class="fas fa-trash del"></i></span>Pushed a level 8 codewar kata</li>
+            <li><span><i class="fas fa-thumbs-up"></i><i class="fas fa-trash del"></i></span>Pushed a level 8 codewar kata</li>
+            <li><span><i class="fas fa-thumbs-up"></i><i class="fas fa-trash del"></i></span>Pushed a level 8 codewar kata</li>
+            <li><span><i class="fas fa-thumbs-up"></i><i class="fas fa-trash del"></i></span>Pushed a level 8 codewar kata</li>
+            <li><span><i class="fas fa-thumbs-up"></i><i class="fas fa-trash del"></i></span>Pushed a level 8 codewar kata</li>
+            <li><span><i class="fas fa-thumbs-up"></i><i class="fas fa-trash del"></i></span>Pushed a level 8 codewar kata</li>
+            <li><span><i class="fas fa-thumbs-up"></i><i class="fas fa-trash del"></i></span>Pushed a level 8 codewar kata</li>
+            <li><span><i class="fas fa-thumbs-up"></i><i class="fas fa-trash del"></i></span>Pushed a level 8 codewar kata</li>
+-->
+        </ul>
+
+
+</section>
+</section>
+<!---------- FOOTER ------------->
+      <footer id="footer">
+        <ul>
+            <li>Copyright <i class="far fa-copyright"></i>2021 by <span><a href="https://spongy.wfarid.repl.co/" target="_blank">Spongy Inc.</a></span> All rights reserved.</li>
+        </ul>
+      </footer>
+<script src="js/script.js"></script>
+<script src="js/main.js"></script>
+  <!--<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></script> -->
+</body>
 </html>
